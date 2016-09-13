@@ -13,6 +13,6 @@ default.  I recommend adjusting the update frequency in the TamperMonkey setting
 
 ## Settings
 
-Visit [codelenny.gitlab.io/gitlab-hidden-diff](http://codelenny.gitlab.io/gitlab-hidden-diff/) to configure the plugin.
+Visit [codelenny.github.io/gitlab-hidden-diff](http://codelenny.github.io/gitlab-hidden-diff/) to configure the plugin.
 
 ## Change Log

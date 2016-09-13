@@ -26,5 +26,8 @@
     "coffee-script": "^1.10.0",
     "fs-extra": "^0.30.0",
     "node-sass": "^3.8.0"
+  },
+  "dependencies": {
+    "child-process-promise": "^2.1.3"
   }
 }
