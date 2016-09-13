@@ -1,0 +1,78 @@
+html
+  head
+    title GitLab Hidden Diff
+    meta(name="description", content="Homepage and settings for GitLab Hidden Diff")
+    link(rel="stylesheet",href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700")
+    link(rel="stylesheet", href="docs.css")
+    link(href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css", rel="stylesheet")
+    meta(charset="utf-8")
+    meta(name="viewport", content="width=device-width, initial-scale=1, shrink-to-fit=no")
+    meta(http-equiv="x-ua-compatible" content="ie=edge")
+  body
+    #header.bg-primary.p-y-3
+      .container
+        h1 GitLab Hidden Diff
+        p.lead
+          | Hides diffs in merge requests according to user-defined wildcards.
+    #main.container.card
+      //-.card-block
+        .row
+          .col-md-9
+            p.lead
+              | Crosses out closed issues.  Adds a progress bar to issues that are open and have a checklist.
+          .col-md-3
+            ul.nav
+              li.nav-item.hidden-sm-down
+                a.nav-link(href="#main") About
+              li.nav-item
+                a.nav-link(href="#install") Installation
+              li.nav-item
+                a.nav-link(href="#settings") Settings
+              li.nav-item
+                a.nav-link(href="https://github.com/CodeLenny/gitlab-links") GitHub
+      //-.card-block
+        img.img-fluid(src="http://i.imgur.com/iSUZum2.png")
+      #install.card-block
+        h2 Installation
+        p.lead
+          | Install&nbsp;
+          a(href="https://tampermonkey.net/") TamperMonkey
+          | , then visit the&nbsp;
+          a(href="https://raw.githubusercontent.com/CodeLenny/gitlab-hidden-diff/master/hide-diffs.user.js") raw script
+          | .  TamperMonkey will prompt you to install the script.
+      #settings.card-block
+        h2 Settings
+        #notfound.alert.alert-warning
+          strong Diff Hider Not Loaded
+          | &nbsp;are you sure you've&nbsp;
+          a.alert-link(href="#install") installed
+          | &nbsp;the script?
+        #version.alert.alert-info(style="display: none;")
+          strong Out of Date
+          | &nbsp;the latest version is&nbsp;
+          strong#latestVersion= semver
+          | .  You are running&nbsp;
+          strong#userVersion
+          | .&nbsp;
+          a.alert-link(href="https://raw.githubusercontent.com/CodeLenny/gitlab-links/master/hide-diffs.user.js")
+            | Update Now
+        #isfound.alert.alert-success(style="display: none;")
+          strong Diff Hider Loaded
+          | &nbsp;you are running the latest version.  You can configure Diff Hider via
+          | the form below.
+        #template.invisible
+          .row
+            .col-xs-10
+              .form-group
+                label.bmd-label-floating Wildcard
+                input.wildcard.form-control(type="text")
+            .col-xs-2
+              a.btn.btn-warning(href="#remove") Remove
+        form
+          .pull-right
+            button.btn.btn-primary.btn-raised(type="submit") Save
+    script(src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.4/jquery.min.js")
+    script(src="https://cdn.rawgit.com/HubSpot/tether/7151ff59c6090ea4e3e50ef0355aaf7e553b7fa9/dist/js/tether.min.js")
+    script(src="https://cdn.rawgit.com/FezVrasta/bootstrap-material-design/370f1774f31b5c53cadab5ce384fe0c9d0dd22c0/dist/bootstrap-material-design.iife.min.js")
+    :js
+      $("body").bootstrapMaterialDesign()
