@@ -17,6 +17,9 @@
 // @downloadURL  https://raw.githubusercontent.com/CodeLenny/gitlab-hidden-diff/master/diff-hider.user.js
 // ==/UserScript==
 semver = "0.0.1";
+function gmGet(val) {
+  return GM_getValue(val);
+}
 function gmSet(val, contents) {
   GM_setValue(val, contents);
 }

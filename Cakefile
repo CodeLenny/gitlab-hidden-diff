@@ -40,6 +40,9 @@ userScript = (js) ->
   """
     #{header}
     semver = "#{semver}";
+    function gmGet(val) {
+      return GM_getValue(val);
+    }
     function gmSet(val, contents) {
       GM_setValue(val, contents);
     }
