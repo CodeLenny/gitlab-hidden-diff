@@ -30,7 +30,7 @@ function gmDelete(val) {
   GM_deleteValue(val);
 }
 (function() {
-  var hideDiffs, isHidden, isSettingsURL, patterns, showSettings, wildcard2regex;
+  var hideDiffs, isHidden, isSettingsURL, patterns, showSettings, triggerClick, wildcard2regex;
 
   wildcard2regex = function(wildcard) {
     return new RegExp("^" + (wildcard.split("*").join(".*")) + "$");
@@ -53,6 +53,15 @@ function gmDelete(val) {
     return false;
   };
 
+  triggerClick = function(el) {
+    var e;
+    e = document.createEvent("HTMLEvents");
+    e.initEvent("click", true, true);
+    return $(el).each(function() {
+      return this.dispatchEvent(e);
+    });
+  };
+
   hideDiffs = function() {
     return $(".diff-file[data-blob-diff-path]").each(function() {
       var all, link, namespace, parsed, path, project, uid;
@@ -69,7 +78,7 @@ function gmDelete(val) {
       }
       link = $(this).find(".file-title a[href^='#diff-']");
       console.log(link[0]);
-      return link.click();
+      return triggerClick(link);
     });
   };
 

@@ -8,6 +8,11 @@ isHidden = (path) ->
   return yes for search in patterns when wildcard2regex(search).test path
   no
 
+triggerClick = (el) ->
+  e = document.createEvent "HTMLEvents"
+  e.initEvent "click", yes, yes
+  $(el).each -> this.dispatchEvent e
+
 hideDiffs = ->
   $(".diff-file[data-blob-diff-path]").each ->
     parsed = $(this).data("blob-diff-path").match /^\/([^\/]+)\/([^\/]+)\/blob\/([^\/]+)\/(.*)\/diff$/
@@ -17,7 +22,7 @@ hideDiffs = ->
     return console.log "#{path} already hidden!" if $(this).find(".diff-collapsed:visible").length > 0
     link = $(this).find(".file-title a[href^='#diff-']")
     console.log link[0]
-    link.click()
+    triggerClick link
 
 isSettingsURL = (url) ->
   url.indexOf("codelenny.gitlab.io") > -1 or
