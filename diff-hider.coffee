@@ -40,7 +40,7 @@ showSettings = ->
     $("form").prepend row
 
 $ ->
-  if isSettingsURL
+  if isSettingsURL()
     showSettings()
   else
     hideDiffs()
