@@ -97,7 +97,7 @@ function gmDelete(val) {
   };
 
   $(function() {
-    if (isSettingsURL) {
+    if (isSettingsURL()) {
       return showSettings();
     } else {
       hideDiffs();
