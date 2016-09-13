@@ -23,7 +23,7 @@ isSettingsURL = (url) ->
   url.indexOf("codelenny.gitlab.io") > -1 or
   url.indexOf("gitlab-hidden-diff.codelenny.com") > -1
 
-showSettings = ->
+showSettings = (url) ->
   # Configure Alerts
   $("#notfound").hide()
   latest = $("#latestVersion").text()
@@ -40,7 +40,7 @@ showSettings = ->
     $("form").prepend row
 
 $ ->
-  if isSettingsURL()
+  if isSettingsURL window.location.href
     showSettings()
   else
     hideDiffs()

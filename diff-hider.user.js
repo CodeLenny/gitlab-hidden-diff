@@ -77,7 +77,7 @@ function gmDelete(val) {
     return url.indexOf("codelenny.gitlab.io") > -1 || url.indexOf("gitlab-hidden-diff.codelenny.com") > -1;
   };
 
-  showSettings = function() {
+  showSettings = function(url) {
     var i, latest, len, pattern, ref, results, row;
     $("#notfound").hide();
     latest = $("#latestVersion").text();
@@ -100,7 +100,7 @@ function gmDelete(val) {
   };
 
   $(function() {
-    if (isSettingsURL()) {
+    if (isSettingsURL(window.location.href)) {
       return showSettings();
     } else {
       hideDiffs();
